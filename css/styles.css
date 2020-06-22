@@ -76,7 +76,7 @@ body {
 }
 */
 .site-nav .link {
-  display: block;
+  display: flex;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -103,7 +103,9 @@ body {
 
 .address-link {
   display: flex;
+  align-items: center;
   min-width: 142px;
+  height: 16px;
   color: var(--main-text-color);
   font-style: normal;
   font-weight: 500;
@@ -122,12 +124,25 @@ body {
 }
 
 .icon-mail {
-  display: flex;
   width: 16px;
-  height: 11px;
+  height: 12px;
   margin-right: 10px;
 }
 
+.icon-mail:hover {
+  --color3: var(--accent-button-and-hover-color);
+  cursor: pointer;
+}
+.icon-mobile {
+  width: 10px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.icon-mobile:hover {
+  --color3: var(--accent-button-and-hover-color);
+  cursor: pointer;
+}
 /*banner*/
 .banner {
   text-align: center;
@@ -210,7 +225,20 @@ body {
   display: flex;
 }
 
-.feature-list .item::before {
+.icon {
+  padding: 25px 100px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  background-color: var(--background-color-second);
+}
+
+.icon-feature {
+  display: flex;
+  width: 70px;
+  height: 70px;
+}
+
+/*.feature-list .item::before {
   display: flex;
   content: "";
   height: 120px;
@@ -218,7 +246,6 @@ body {
   background-size: 70px;
   background-repeat: no-repeat;
   background-position: center;
-  /*outline: 2px solid tomato;*/
   background-color: var(--background-color-second);
 }
 .icon-antenna::before {
@@ -236,7 +263,7 @@ body {
 .icon-astronaut::before {
   background-image: url(../images/astronaut.svg);
 }
-
+*/
 .feature-list .item + .item {
   margin-left: 30px;
 }
@@ -262,12 +289,27 @@ body {
 .work-list {
   display: flex;
 }
+.photo1 {
+  max-width: 370px;
+  height: 294px;
+  background-image: url(../images/desktop.jpg);
+}
+.photo2 {
+  max-width: 370px;
+  height: 294px;
+  background-image: url(../images/mobile.jpg);
+}
+.photo3 {
+  max-width: 370px;
+  height: 294px;
+  background-image: url(../images/design.jpg);
+}
 .work-list .item + .item {
   margin-left: 30px;
 }
 .work-list .title {
-  display: inline-block;
-  margin-top: 0;
+  display: inline-flex;
+  margin-top: 225px;
   margin-bottom: 0;
   padding: 27px 72px;
   min-width: 370px;
