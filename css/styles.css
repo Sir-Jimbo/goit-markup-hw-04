@@ -104,7 +104,7 @@ body {
 .address-link {
   display: flex;
   align-items: center;
-  min-width: 142px;
+  max-width: 161px;
   height: 16px;
   color: var(--main-text-color);
   font-style: normal;
@@ -114,13 +114,14 @@ body {
   letter-spacing: 0.02em;
 }
 
+.address-link + .address-link {
+  margin-left: 30px;
+}
+
 .address-link:hover,
 .address-link:focus {
   color: var(--accent-button-and-hover-color);
-}
-
-.address-link + .address-link {
-  margin-left: 30px;
+  --color3: var(--accent-button-and-hover-color);
 }
 
 .icon-mail {
@@ -129,20 +130,12 @@ body {
   margin-right: 10px;
 }
 
-.icon-mail:hover {
-  --color3: var(--accent-button-and-hover-color);
-  cursor: pointer;
-}
 .icon-mobile {
   width: 10px;
   height: 15px;
   margin-right: 10px;
 }
 
-.icon-mobile:hover {
-  --color3: var(--accent-button-and-hover-color);
-  cursor: pointer;
-}
 /*banner*/
 .banner {
   text-align: center;
@@ -158,7 +151,7 @@ body {
       var(--opacity-background-color),
       var(--opacity-background-color)
     ),
-    url(../images/banner-resize.jpg);
+    url(../images/banner.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -329,7 +322,41 @@ body {
 }
 .team-list {
   display: flex;
-  text-align: center;
+}
+
+.team-list .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 270px;
+  height: 422px;
+  background-color: var(--primary-text-color-and-background);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 0px 0px 4px 4px;
+}
+
+.team-list .item::before {
+  display: flex;
+  content: "";
+  height: 260px;
+  width: 270px;
+  margin-bottom: 30px;
+  background-repeat: no-repeat;
+}
+.product-designer::before {
+  background-image: url(../images/Kucherenko.jpg);
+}
+
+.frontend-developer::before {
+  background-image: url(../images/Ivanova.jpg);
+}
+
+.marketing::before {
+  background-image: url(../images/Schevchenko.jpg);
+}
+.ui-designer::before {
+  background-image: url(../images/Nikolaev.jpg);
 }
 .team-list .item + .item {
   margin-left: 30px;
@@ -354,23 +381,34 @@ body {
 /*social-links*/
 .social-links {
   display: flex;
-  justify-content: center;
 }
-.social-links .item + .item {
-  margin-left: 10px;
-}
+
 .social-links .link {
   display: inline-flex;
-  height: 44px;
+  align-items: center;
+  justify-content: center;
   width: 44px;
-  background-image: url(../images/instagram.svg);
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 44px;
   border-radius: 50%;
+  box-shadow: none;
 }
+
+.icon-links {
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+
+.social-links .links:not(:last-child) {
+  margin-right: 10px;
+}
+
 .social-links .link:hover,
 .social-links .link:focus {
+  border-radius: 50%;
+  box-shadow: none;
+  cursor: pointer;
+  --color4: #ffffff;
   background-color: var(--accent-button-and-hover-color);
 }
 
@@ -379,24 +417,39 @@ body {
 .clients {
   display: flex;
 }
-.clients .item {
-  display: block;
+.client-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 170px;
   padding: 22px 41px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
 }
-.clients .item + .item {
+
+.client-link:hover,
+.client-link:focus {
+  border: 1px solid var(--accent-button-and-hover-color);
+  cursor: pointer;
+  --color4: var(--accent-button-and-hover-color);
+}
+.item + .item {
   margin-left: 30px;
 }
-
-.clients .img {
-  display: block;
+.icon-clients {
+  max-width: 88px;
+  max-height: 52px;
+}
+.icon-clients:hover,
+.icon-clients:focus {
+  cursor: pointer;
+  --color4: var(--accent-button-and-hover-color);
 }
 
 /*footer*/
 .footer {
-  padding-top: 45px;
+  padding-top: 60px;
+  padding-bottom: 60px;
   color: var(--primary-text-color-and-background);
   background-color: var(--footer-color);
 }
@@ -408,7 +461,7 @@ body {
 }
 .footer-logo {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 20px;
   color: var(--primary-text-color-and-background);
   font-family: Raleway, sans-serif;
   font-weight: 700;
@@ -417,11 +470,14 @@ body {
 }
 .footer-adress {
   display: block;
-  margin-bottom: 9px;
   font-style: normal;
   font-size: 14px;
   line-height: 1.71;
 }
+.footer-adress:not(:last-child) {
+  margin-bottom: 9px;
+}
+
 .footer-address-link {
   color: var(--footer-text-color);
 }
@@ -437,14 +493,27 @@ body {
   font-size: 14px;
   line-height: 1.14;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
-.footer-text {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: var(--footer-text-color);
-  font-size: 12px;
-  line-height: 2;
-  text-align: center;
+
+.social-links .footer-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-links .footer-link:hover,
+.social-links .footer-link:focus {
+  border-radius: 50%;
+  box-shadow: none;
+  cursor: pointer;
+  --color4: #ffffff;
+  background-color: var(--accent-button-and-hover-color);
 }
 
 /*portfolio*/
@@ -472,11 +541,11 @@ body {
 .btn:focus {
   color: var(--primary-text-color-and-background);
   background-color: var(--accent-button-and-hover-color);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 3px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 }
 
-.btn.active {
-  background-color: var(--accent-button-and-hover-color);
-}
 .filter .item + .item {
   margin-left: 8px;
 }
@@ -487,23 +556,80 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
-.projects .item {
+.projects-item {
+  display: flex;
   width: calc((100% - 60px) / 3);
+  height: 404px;
   margin-right: 30px;
   margin-bottom: 30px;
+  border: 1px solid #eeeeee;
 }
-.projects .item:nth-child(3n) {
+.projects-item:nth-child(3n) {
   margin-right: 0;
 }
-.projects .item:nth-last-child(-n + 3) {
+.projects-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
+
+.projects-item:hover {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    0px 1px 1px rgba(0, 0, 0, 0.12);
+  border: 1px solid #eeeeee;
+}
+
+.project-links::before {
+  display: flex;
+  content: "";
+  width: 370px;
+  height: 294px;
+}
+
+.projects .project1::before {
+  background-image: url(../images/project1.jpg);
+}
+
+.projects .project2::before {
+  background-image: url(../images/project2.jpg);
+}
+
+.projects .project3::before {
+  background-image: url(../images/project3.jpg);
+}
+.projects .project4::before {
+  background-image: url(../images/project4.jpg);
+}
+
+.projects .project5::before {
+  background-image: url(../images/project5.jpg);
+}
+.projects .project6::before {
+  background-image: url(../images/project6.jpg);
+}
+
+.projects .project7::before {
+  background-image: url(../images/project7.jpg);
+}
+
+.projects .project8::before {
+  background-image: url(../images/project8.jpg);
+}
+.project9::before {
+  background-image: url(../images/project9.jpg);
+}
+
 /*Alternarive*/
 /*
 .projects .item:not(:nth-child(3n))
 .projects .item:not(:nth-last-child(-n + 3))
 
 */
+
+.project-bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+}
+
 .projects-title {
   margin-top: 0;
   margin-bottom: 4px;
