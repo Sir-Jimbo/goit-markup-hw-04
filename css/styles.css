@@ -421,7 +421,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 170px;
+  width: 170px;
+  height: 90px;
   padding: 22px 41px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
